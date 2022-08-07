@@ -3,15 +3,18 @@ import { Card, CardActions, CardContent, CardMedia, Button, Typography } from "@
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+import { useDispatch } from "react-redux";
 
 
 import useStyles from "../styles.js";
+import { deletePost } from "../../../actions/postsActions.js";
 
 
 //fetch data from global redux store by selectors
 const Post = ({post, setCurrentId}) => {
 
     const classes = useStyles();
+    const dispatch = useDispatch();
 
     //get acces to global redux store /state
     //To know why its (in this case) called posts, check reducers/index.js
@@ -31,7 +34,7 @@ const Post = ({post, setCurrentId}) => {
                 <ThumbUpAltIcon fontSize="small"> </ThumbUpAltIcon>
                 
                 </Button>
-                <Button size="small" color="primary" onClick={() => {}}>
+                <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
                     <DeleteIcon fontSize="small"> </DeleteIcon>
                     Delete
                 </Button>

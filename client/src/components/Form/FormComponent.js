@@ -71,8 +71,6 @@ const Form = ({currentId, setCurrentId}) => {
 
 
             </form>
-
-
         </Paper>
 
     )

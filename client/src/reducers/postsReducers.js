@@ -5,6 +5,9 @@ export default (posts = [], action) => {
 
     switch (action.type) {
 
+        case 'DELETE':
+            //Filter out the post that is being deleted
+            return posts.filter((post) => post._id != action.payload)
         case 'UPDATE':
             //map --> single post id is equal action.payload._id (updated post) then return action.payload.
             //Otherwise : post --> return just the post as it was

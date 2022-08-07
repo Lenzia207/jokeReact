@@ -11,6 +11,7 @@ export const fetchJokes = () => axios.get(jokeUrl);
 //Then go to actions
 export const createPost = (newPost) => axios.post(url, newPost);
 export const updatePost = (id, updatedPost) => axios.patch(`${url}/${id}`, updatedPost);
+export const deletePost = (id) => axios.delete(`${url}/${id}`);
 
 
 
