@@ -29,7 +29,6 @@ export const createPost =  async (req, res) =>{
 };
 
 export const updatePost = async(req, res) => {
-    console.log(req.body, "LENZIA2_body_sent");
     const { id: _id } = req.params; //check the id
     
     const post = req.body //sent from the frontend
@@ -40,7 +39,8 @@ export const updatePost = async(req, res) => {
     //if it's valid then update Post
     //Since its async, apply await 
     //Specify {new: true} to receive updated version of the Post
-    const updatedPost = await PostJoke.findByIdAndUpdate(_id, post, {new: true})
+    //{ ...post, id } --> spread all properties of this object and also pass in id
+    const updatedPost = await PostJoke.findByIdAndUpdate(_id, { ...post, _id },  {new: true})
     
     //send over the updated Post
     res.json(updatedPost);

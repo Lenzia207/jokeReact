@@ -39,16 +39,12 @@ const Form = ({currentId, setCurrentId}) => {
         //with updatePost we need to know the ID
         if(currentId){
             dispatch(updatePost(currentId, postData))
-
         } else {
             //dispatch the action createPost (don't forget to import)
             dispatch(createPost(postData));
-         }
+        }
 
-         console.log(currentId);
-
-       
-        
+         clear();
 
         //Once action is dispatched go to reducers/post
 
