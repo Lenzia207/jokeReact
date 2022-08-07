@@ -8,8 +8,6 @@ import postRoutes from './routes/posts.js'
 //initialize App
 const app = express();
 
-
-
 app.use(cors()); //This should be above "app.use('/posts', postRoutes);"
 
 app.use(bodyParser.urlencoded({extended:true}));
