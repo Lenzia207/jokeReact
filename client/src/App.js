@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useState, useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'
 import { useDispatch } from 'react-redux';
 
@@ -11,7 +11,7 @@ import useStyles from './styles.js'
 
 
 const App = () => {
-
+    const [currentId, setCurrentId] = useState(null);
     const classes = useStyles();
     const dispatch = useDispatch(); //hook dispatch
 
@@ -31,12 +31,12 @@ const App = () => {
             <Grid className={classes.root}>
                 
                 <Grid item xs={6} sm={7}>
-                    <Posts />
+                    <Posts setCurrentId = {setCurrentId}/>
                 </Grid>
 
 
                 <Grid item xs={6} sm={4}>
-                    <Form />
+                    <Form currentId={currentId} setCurrentId = {setCurrentId} />
                 </Grid>
 
 

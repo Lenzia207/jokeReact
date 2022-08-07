@@ -18,8 +18,6 @@ export const getPosts = () => async (dispatch) => { 
 
 }
 
-
-
 export const createPost = (post) => async (dispatch) => {
     console.log(post, "LENZIA");
     
@@ -37,5 +35,16 @@ export const createPost = (post) => async (dispatch) => {
 
 
     //After go to Forms where we want to create a Post make connection for dispatching (useDispatch)
+}
+
+export const updatePost = (id, post) => async(dispatch) => {
+    try {
+        //api req, returns the updated post 
+       const { data } =  await api.updatePost(id, post);
+
+       dispatch({ type: 'UPDATE', payload: data})
+    } catch (error) {
+        console.log(error.message);
+    }
 }
 
