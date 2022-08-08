@@ -15,7 +15,7 @@ import * as api from '../api';
     try {
         const { data } = await api.fetchJokes();
 
-        dispatch({ type: 'FETCH_ALL', payload: data });
+        dispatch({ type: 'FETCH_JOKES', payload: data });
         
     } catch (error) {
         console.log(error);
