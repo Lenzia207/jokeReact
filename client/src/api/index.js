@@ -15,4 +15,4 @@ export const deletePost = (id) => axios.delete(`${url}/${id}`);
 
 
 
-export const showJoke = (newJoke) => axios.get(jokeUrl, newJoke);
+//export const showJoke = (newJoke) => axios.get(jokeUrl, newJoke);

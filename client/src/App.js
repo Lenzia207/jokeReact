@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'
 import { useDispatch } from 'react-redux';
 
@@ -26,18 +26,13 @@ const App = () => {
                 <Jokes />
             </Grid>
 
-            <Typography variant="h6"> Or submit your own Jokes </Typography>
+        
+            <Form currentId={currentId} setCurrentId={setCurrentId} />
+            <Posts setCurrentId={setCurrentId} />
 
-            <Grid className={classes.root}>
-                
-                <Grid item xs={6} sm={7}>
-                    <Posts setCurrentId = {setCurrentId}/>
-                </Grid>
-                
-                <Grid item xs={6} sm={4}>
-                    <Form currentId={currentId} setCurrentId = {setCurrentId} />
-                </Grid>
-            </Grid>
+
+
+
 
 
         </Container>

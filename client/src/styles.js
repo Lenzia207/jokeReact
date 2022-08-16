@@ -5,9 +5,10 @@ export default makeStyles(() => ({
     minWidth: "100%",
     minHeight: "20vh",
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "center", 
-    alignItems: "center"
+    flexDirection: 'column'
+
+
+
     },
 
     

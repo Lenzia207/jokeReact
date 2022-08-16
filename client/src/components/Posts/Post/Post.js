@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardActions, CardContent, CardMedia, Button, Typography } from "@material-ui/core";
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, Paper, Container } from "@material-ui/core";
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
@@ -11,7 +11,7 @@ import { deletePost } from "../../../actions/postsActions.js";
 
 
 //fetch data from global redux store by selectors
-const Post = ({post, setCurrentId}) => {
+const Post = ({ post, setCurrentId }) => {
 
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -20,20 +20,20 @@ const Post = ({post, setCurrentId}) => {
     //To know why its (in this case) called posts, check reducers/index.js
     /* const posts = useSelector((state) => state.posts);
     console.log(posts); */
-    return(
-        <div className={classes.card}>
-            <div> {post.setup} {post.delivery} </div>
+    return (
+        <Container /* className={classes.card} */>
+                <Typography className={classes.title} variant="subtitle1" color="textSecondary"> - {post.creator}</Typography>
+                <Typography variant="h4" component="h2"> {post.setup} </Typography>
+                <Typography variant="h5" component="h2">{post.delivery} </Typography>
+                <Typography className={classes.pos} variant="subtitle1" color="textSecondary"> {post.category}</Typography>
+            
 
-            <div>
-                <Typography variant="h6"> {post.creator}</Typography>
-                <Typography variant="h4"> {post.category}</Typography>
-            </div>
 
-            <CardActions>
-                <Button size="small" color="primary" onClick={() => {}}> 
-                <ThumbUpAltIcon fontSize="small"> </ThumbUpAltIcon>
-                
+             
+                <Button size="small" color="primary" onClick={() => { }}>
+                    <ThumbUpAltIcon fontSize="small"> </ThumbUpAltIcon>
                 </Button>
+
                 <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
                     <DeleteIcon fontSize="small"> </DeleteIcon>
                     Delete
@@ -43,9 +43,9 @@ const Post = ({post, setCurrentId}) => {
                     <EditIcon fontSize="small"> </EditIcon>
                     Edit
                 </Button>
+        
 
-            </CardActions>
-        </div>
+        </Container>
 
     )
 }
