@@ -18,6 +18,10 @@ app.use(bodyParser.json({extended:true}));
 //THIS ALWAYS BELOW BODYPARSER
 app.use('/posts', postRoutes); //add prefix for posting Jokes
 
+app.get("/", (req, res) => {
+res.send("Hello")
+})
+
 
 
 

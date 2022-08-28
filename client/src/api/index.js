@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = 'http://localhost:5000/posts';
+const url = 'https://marqably-react.herokuapp.com/posts';
 //const jokeUrl ='https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist,explicit'
 
 export const fetchPosts = () => axios.get(url);
