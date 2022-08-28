@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 
 
 import useStyles from "../styles.js";
-import { deletePost } from "../../../actions/postsActions.js";
+import { deletePost, likePost } from "../../../actions/postsActions.js";
 
 
 //fetch data from global redux store by selectors
@@ -30,17 +30,23 @@ const Post = ({ post, setCurrentId }) => {
 
 
              
-                <Button size="small" color="primary" onClick={() => { }}>
-                    <ThumbUpAltIcon fontSize="small"> </ThumbUpAltIcon>
+                <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id), console.log( 'Lenzia2')) }>
+                    <ThumbUpAltIcon fontSize="small" /> &nbsp;
+                   Like &nbsp;
+                   {post.likeCount}
                 </Button>
 
+                &nbsp;
+
                 <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
-                    <DeleteIcon fontSize="small"> </DeleteIcon>
+                    <DeleteIcon fontSize="small"> </DeleteIcon> &nbsp;
                     Delete
                 </Button>
 
+                &nbsp;
+
                 <Button size="small" color="primary" onClick={() => setCurrentId(post._id)}>
-                    <EditIcon fontSize="small"> </EditIcon>
+                    <EditIcon fontSize="small" /> &nbsp;
                     Edit
                 </Button>
         
@@ -48,6 +54,7 @@ const Post = ({ post, setCurrentId }) => {
         </Container>
 
     )
+    
 }
 
 export default Post;
