@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'
+import { Container, AppBar, Typography, Grow, Grid, Paper } from '@material-ui/core'
 import { useDispatch } from 'react-redux';
 
 
 import { getPosts } from './actions/postsActions.js'
 import Posts from './components/Posts/PostsComponent.js';
 import Form from './components/Form/FormComponent.js';
-import Jokes from './components/Jokes/JokesComponent.js';
+import Jokes from './components/Jokes/Jokes.js';
 import useStyles from './styles.js'
 
 
@@ -23,18 +23,14 @@ const App = () => {
         <Container maxidth="lg" >
 
             <Grid item xs={12} sm={4} className={classes.root}>
-                <Jokes />
+                <Jokes  />
             </Grid>
 
-        
             <Form currentId={currentId} setCurrentId={setCurrentId} />
             <Posts setCurrentId={setCurrentId} />
-
-
-
-
-
-
+            
+            
+        
         </Container>
     );
 }
